@@ -1,0 +1,73 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'DEVELOPER NAME');
+          data.addColumn('number', 'RISK');
+          data.addRows([
+            ['org.chromium.base', 31],
+            ['com.facebook.debug.logcat.raw', 4],
+            ['com.android.ex.photo.', 5],
+            ['com.android.volley.toolbox', 4],
+            ['com.android.launcher3', 5],
+            ['com.android.ex.editstyledtext', 12],
+            ['org.jboss.netty.util', 5],
+            ['com.actionbarsherlock.internet.widget', 3],
+            ['com.facebook.acra', 3],
+            ['com.vk.sdk.api.httpClient', 4],
+            ['com.millennialmedia.android', 5],
+            ['com.tripadvisor.android.lib.tamobile.activities', 6],
+            ['com.android.vending.billing', 5],
+            ['net.zedge.model.country', 6],
+            ['com.jiubang.ggheart.apps.desks.diy', 6],
+            ['com.inmobi.android.npush.service', 3],
+            ['com.facebook', 6],
+            ['com.inmobi.re.container', 5],
+             ['com.sec.print.mobileprint.df', 4],
+            ['com.cleanmaster.ui.process', 5],
+            ['com.amazonaws.service.sns', 5],
+            ['org.simpleframework.xml.stream', 7],
+            ['com.doodlemobile.gamecenter', 8],
+            ['com.adsdk.sdk.video', 5],
+            ['flipboard.gui.section', 2],
+            ['com.squareup.okhttp.internal', 5],
+            ['com.rovio.skynest', 8],
+            ['com.kamcord.android', 5],
+             ['com.picsart.effects.view', 5],
+            ['com.sgiggle.media_engine', 5],
+            ['com.flurry.sdk', 3],
+            ['com.facebook.widget', 3],
+            ['com.amazon.identify.auth.device.endpoint', 12],
+            ['com.tencent.kingkong.database', 4]
+          
+            
+]);
+
+         var options = {
+           title: 'RISK VS DEVELOPER NAME',
+           width: 1000,
+           height: 600,
+           legend: 'none',
+           bar: {groupWidth: '50%'},
+           VAxis: { gridlines: { count: 5 } }
+         };
+
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="number_format_chart">
+  </body>
+</html>

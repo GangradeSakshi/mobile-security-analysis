@@ -1,0 +1,56 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'CATEGORY');
+          data.addColumn('number', 'RISK');
+          data.addRows([
+            ['MEDIA_AND_VIDEO', 8],
+            ['TOOLS', 30],
+            ['SOCIAL', 13],
+            ['COMMUNICATION', 32],
+            ['TRAVEL_AND_LOCAL', 10],
+            ['MEDIA_AND_AUDIO', 17],
+            ['BOOKS_AND_REFERENCE', 5],
+            ['GAME_ARCADE', 23],
+            ['PRODUCTIVITY', 13],
+            ['PERSONALIZATION', 12],
+            ['ENTERTAINMENT', 23],
+            ['GAME_SPORTS', 4],
+            ['GAME_RACING', 12],
+            ['NEWS_AND_MAGAZINES', 7],
+             ['GAME_CASUAL', 8],
+            ['PHOTOGRAPHY', 13],
+            ['SHOPPING', 2],
+            ['GAME_ACTION', 5],
+            ['GAME_PUZZLE', 4]
+]);
+
+         var options = {
+           title: 'RISK VS CATEGORY',
+           width: 1000,
+           height: 600,
+           legend: 'none',
+           bar: {groupWidth: '50%'},
+           VAxis: { gridlines: { count: 5 } }
+         };
+
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="number_format_chart">
+  </body>
+</html>

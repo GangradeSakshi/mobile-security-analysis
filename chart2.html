@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+        google.setOnLoadCallback(drawStuff);
+
+        function drawStuff() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'DEVELOPER NAME');
+          data.addColumn('number', 'RISK');
+          data.addRows([
+            ['Google Inc', 60],
+            ['Facebook', 7],
+            ['Samsung Electronics Ltd.', 9],
+            ['Whatsapp Inc', 3],
+            ['Rovio mobile ltd', 9],
+            ['Trip advisor', 6],
+            ['Adobe', 10],
+            ['Zedge', 6],
+            ['GO Launcher Dev Team', 6],
+            ['Halfbrick Studios', 10],
+            ['LINE corp', 3],
+            ['Pandora', 6],
+            ['Samsung Electronics', 4],
+            ['Cheetah Mobile', 5],
+            ['Shazam Entertainment ltd', 7],
+            ['TerranDriod', 4],
+            ['Fingersoft', 5],
+            ['Flipboard', 2],
+             ['Opera Software ASA', 2],
+            ['Rovio Entertainment Ltd', 4],
+            ['Outfit7', 13],
+            ['PicsArt', 5],
+            ['Tango', 5],
+            ['Nicolay Ananiev', 3],
+            ['ZXing Team', 2],
+            ['Imangi Studios', 5],
+            ['Tencent Technology company ltd', 4],
+            ['Creative mobile', 7],
+             ['King', 3],
+            ['Netflix', 14],
+            ['PinGuo Inc', 8],
+            ['City Games LLC', 4]
+          
+            
+]);
+
+         var options = {
+           title: 'RISK VS DEVELOPER NAME',
+           width: 1000,
+           height: 600,
+           legend: 'none',
+           bar: {groupWidth: '50%'},
+           VAxis: { gridlines: { count: 5 } }
+         };
+
+         var chart = new google.visualization.ColumnChart(document.getElementById('number_format_chart'));
+         chart.draw(data, options);
+
+         document.getElementById('format-select').onchange = function() {
+           options['vAxis']['format'] = this.value;
+           chart.draw(data, options);
+         };
+      };
+    </script>
+  </head>
+  <body>
+    <div id="number_format_chart">
+  </body>
+</html>
